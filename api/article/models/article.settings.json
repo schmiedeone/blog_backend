@@ -35,6 +35,10 @@
     "category": {
       "model": "category",
       "via": "articles"
+    },
+    "author": {
+      "via": "articles",
+      "model": "author"
     }
   }
 }
