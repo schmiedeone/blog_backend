@@ -1,0 +1,7 @@
+version: '3'
+# ecs-params file is required to upload to AWS
+services:
+  web:
+    image: '$TAGGED_IMAGE'
+    ports:
+      - 80:1337
