@@ -5,3 +5,5 @@ services:
     image: '$TAGGED_IMAGE'
     ports:
       - 80:1337
+    env_file: 
+      - .env

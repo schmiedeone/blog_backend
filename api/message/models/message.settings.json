@@ -19,12 +19,11 @@
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
-      "required": false
+      "path" : "arn:aws:s3:eu-central-1:436054152060:accesspoint/schmiede-blog-image-access-point",
+      "required": true
     }
   }
 }

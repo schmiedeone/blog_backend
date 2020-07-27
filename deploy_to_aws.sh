@@ -22,7 +22,7 @@ aws ecr get-login-password --region eu-central-1 | docker login \
 
 
 echo "Building docker..."
-docker build -f Dockerfile -t ${tag} . --no-cache
+docker build -f Dockerfile -t ${tag} . #--no-cache
 docker tag ${tag}:latest ${tagged_image}
 
 echo "Pushing to AWS..."
@@ -32,4 +32,4 @@ echo "Stopping currently running service..."
 ecs-cli compose service --cluster-config ${cluster} stop
 
 echo "Creating and starting service..."
-TAGGED_IMAGE=${tagged_image} TAGGED_IMAGE_DB=${tagged_image_db} ecs-cli compose service --cluster-config ${cluster} up
+TAGGED_IMAGE=${tagged_image} MONGO_URL=${MONGO_URI} ecs-cli compose service --cluster-config ${cluster} up
