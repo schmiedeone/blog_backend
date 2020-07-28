@@ -3,5 +3,3 @@ task_definition:
   services:
     web:
       mem_reservation: 700MB
-    db:
-      mem_reservation: 200MB

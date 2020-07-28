@@ -2,7 +2,7 @@
 FROM node:12
 
 # Set the working directory.
-WORKDIR /home/thomas/Documents/blog/blog_backend
+WORKDIR /app
 
 # Copy the file from your host to your current location.
 COPY package.json .
