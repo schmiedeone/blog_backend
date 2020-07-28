@@ -32,4 +32,4 @@ echo "Stopping currently running service..."
 ecs-cli compose service --cluster-config ${cluster} stop
 
 echo "Creating and starting service..."
-TAGGED_IMAGE=${tagged_image} MONGO_URL=${MONGO_URI} ecs-cli compose service --cluster-config ${cluster} up
+TAGGED_IMAGE=${tagged_image} ecs-cli compose service --cluster-config ${cluster} up
