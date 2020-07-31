@@ -24,7 +24,7 @@ module.exports = ({ env }) => ({
         "images"
       ],
       plugin: "upload",
-      path: process.env.NODE_ENV === "develop" ? "" : process.env.IMAGE_BUCKET,
+      path: process.env.NODE_ENV === "develop" ? process.env.IMAGE_BUCKET_DEVELOPMENT : process.env.IMAGE_BUCKET,
       required: true
     },
     published_at: {
