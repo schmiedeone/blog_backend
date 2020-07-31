@@ -6,7 +6,7 @@ module.exports = ({ env }) => ({
         secretAccessKey: env('AWS_ACCESS_SECRET'),
         region: 'eu-central-1',
         params: {
-          Bucket: process.env.NODE_ENV === 'develop' ? 'schmiede-blog-images-development' : 'schmiede-blog-images',
+          Bucket: process.env.NODE_ENV === 'development' ? 'schmiede-blog-images-development' : 'schmiede-blog-images',
         },
       },
     },
