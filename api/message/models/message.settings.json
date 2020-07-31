@@ -23,6 +23,11 @@
       ],
       "plugin": "upload",
       "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

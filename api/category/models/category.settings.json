@@ -27,6 +27,11 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

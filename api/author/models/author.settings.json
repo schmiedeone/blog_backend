@@ -10,8 +10,8 @@
   },
   "attributes": {
     "articles": {
-      "collection": "article",
-      "via": "author"
+      "via": "author",
+      "collection": "article"
     },
     "name": {
       "type": "string"
@@ -27,6 +27,11 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
