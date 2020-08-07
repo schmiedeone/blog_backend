@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# exit if any command fails
+set -e
+
 # Version key/value should be on its own line
 VERSION=$(cat package.json \
   | grep version \
@@ -25,11 +28,18 @@ echo "Building docker..."
 docker build -f Dockerfile -t ${tag} . #--no-cache
 docker tag ${tag}:latest ${tagged_image}
 
+nginx_tag="nginx_blog_backend"
+nginx_aws_tag="blog-nginx-repository"
+nginx_tagged_image=436054152060.dkr.ecr.eu-central-1.amazonaws.com/${nginx_aws_tag}:${VERSION}
+docker build -f nginx.Dockerfile -t ${nginx_tag} . --no-cache
+docker tag ${nginx_tag}:latest ${nginx_tagged_image}
+
 echo "Pushing to AWS..."
 docker push ${tagged_image}
+docker push ${nginx_tagged_image}
 
 echo "Stopping currently running service..."
 ecs-cli compose service --cluster-config ${cluster} stop
 
 echo "Creating and starting service..."
-TAGGED_IMAGE=${tagged_image} ecs-cli compose service --cluster-config ${cluster} up
+TAGGED_IMAGE=${tagged_image} NGINX_IMAGE=${nginx_tagged_image} ecs-cli compose service --cluster-config ${cluster} up

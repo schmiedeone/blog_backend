@@ -3,9 +3,15 @@ version: '3'
 services:
   web:
     image: '$TAGGED_IMAGE'
-    ports:
-      - 80:1337
     env_file: 
       - .env
     environment: 
       NODE_ENV: production
+
+  nginx:
+    image: '$NGINX_IMAGE'
+    ports: 
+      - 80:80
+      - 443:443
+    links: 
+      - web
