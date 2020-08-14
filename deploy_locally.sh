@@ -37,18 +37,4 @@ docker build -f nginx.Dockerfile -t ${nginx_tag} . #--no-cache
 docker tag ${nginx_tag}:latest ${nginx_tagged_image}
 # endregion
 
-# region pushing to AWS
-echo "Pushing to AWS..."
-docker push ${tagged_image}
-docker push ${nginx_tagged_image}
-# endregion
-
-# region from repository to cluster
-cluster="blog-backend-config"
-
-echo "Stopping currently running service..."
-ecs-cli compose service --cluster-config ${cluster} stop
-
-echo "Creating and starting service..."
-TAGGED_IMAGE=${tagged_image} NGINX_IMAGE=${nginx_tagged_image} ecs-cli compose service --cluster-config ${cluster} up
-# endregion
+TAGGED_IMAGE=${tagged_image} NGINX_IMAGE=${nginx_tagged_image} docker-compose up

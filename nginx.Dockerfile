@@ -1,6 +1,13 @@
 FROM nginx
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY proxy.conf /etc/nginx/proxy.conf
-COPY mime.types /etc/nginx/conf/mime.types
+WORKDIR /etc/nginx
+RUN mkdir logs
+RUN touch logs/access.log
+RUN touch logs/api.access.log
+RUN touch logs/error.log
+RUN touch logs/nginx.pid
+
+COPY nginx.conf nginx.conf
+COPY proxy.conf proxy.conf
+COPY mime.types conf/mime.types
 
