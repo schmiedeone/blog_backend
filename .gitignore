@@ -117,3 +117,4 @@ build
 ####################################
 my-key-pair.pem
 ecs-cli.asc
+ssl
