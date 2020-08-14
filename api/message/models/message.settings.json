@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "messages",
   "info": {
-    "name": "category"
+    "name": "Message"
   },
   "options": {
     "increments": true,
@@ -12,9 +12,8 @@
     "name": {
       "type": "string"
     },
-    "articles": {
-      "collection": "article",
-      "via": "category"
+    "description": {
+      "type": "richtext"
     },
     "image": {
       "collection": "file",
@@ -24,9 +23,6 @@
       ],
       "plugin": "upload",
       "required": true
-    },
-    "description": {
-      "type": "richtext"
     },
     "slug": {
       "type": "string",

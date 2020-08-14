@@ -21,9 +21,7 @@
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "files",
-        "images",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
       "required": true
@@ -32,10 +30,18 @@
       "required": true,
       "type": "date"
     },
-    "categories": {
-      "collection": "category",
+    "category": {
       "via": "articles",
-      "dominant": true
+      "model": "category"
+    },
+    "author": {
+      "model": "author",
+      "via": "articles"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

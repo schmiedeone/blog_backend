@@ -1,20 +1,20 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "authors",
   "info": {
-    "name": "category"
+    "name": "Author"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
+    "articles": {
+      "via": "author",
+      "collection": "article"
+    },
     "name": {
       "type": "string"
-    },
-    "articles": {
-      "collection": "article",
-      "via": "category"
     },
     "image": {
       "collection": "file",

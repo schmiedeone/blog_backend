@@ -1,0 +1,7 @@
+version: 1
+task_definition:
+  services:
+    web:
+      mem_reservation: 700MB
+    nginx:
+      mem_reservation: 200MB
