@@ -33,7 +33,7 @@ nginx_tag="nginx_blog_backend"
 nginx_aws_tag="blog-nginx-repository"
 nginx_tagged_image=436054152060.dkr.ecr.eu-central-1.amazonaws.com/${nginx_aws_tag}:${VERSION}
 
-docker build -f nginx.Dockerfile -t ${nginx_tag} . #--no-cache
+docker build -f nginx.Dockerfile -t ${nginx_tag} . --no-cache
 docker tag ${nginx_tag}:latest ${nginx_tagged_image}
 # endregion
 

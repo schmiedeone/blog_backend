@@ -24,7 +24,7 @@ aws_tag="blog-backend-repository"
 tagged_image=436054152060.dkr.ecr.eu-central-1.amazonaws.com/${aws_tag}:${VERSION}
 
 echo "Building docker..."
-docker build -f Dockerfile -t ${tag} . #--no-cache
+docker build -f Dockerfile -t ${tag} . --no-cache
 docker tag ${tag}:latest ${tagged_image}
 # endregion
 
